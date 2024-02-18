@@ -1,7 +1,4 @@
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +11,8 @@ public class App {
         EntityTransaction transaction = entityManager.getTransaction();
 
         transaction.begin();
-//Supplier ekleme
- /*       Supplier supplier = new Supplier();
+/*    //Supplier ekleme
+      Supplier supplier = new Supplier();
         supplier.setAddress("adres");
         supplier.setCompany("patika");
         supplier.setContact("5131654518");
@@ -84,7 +81,19 @@ public class App {
 
        Color color = entityManager.find(Color.class,1);
         System.out.println(color.getProductList().toString());
+
+
+        //SELECT * FROM categories
+        //Bu kod ile birlikte Categorylerde olan isimleri görebiliyoruz...
+        Query getAllCategory = entityManager.createQuery("SELECT cat FROM Category cat");
+        //Tamamen nesneler üzerinde bir şeyler ürettiğimiz için ORM ve JPA ile o yüzden JPQL kullanılır.
+
+        List<Category> categoryList = getAllCategory.getResultList();
+
+        for (Category category : categoryList)
+            System.out.println(category.getName());
 */
+
 
         transaction.commit();
 
